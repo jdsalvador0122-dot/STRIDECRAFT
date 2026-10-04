@@ -1,0 +1,53 @@
+/* mobile.css — load AFTER style.css */
+html, body { overflow-x: hidden; }
+img { max-width: 100%; }
+.job-slot-icon { height: 40px; }            /* fixes the 100px-tall icon box */
+.grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+.service-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); }
+.job-slots-panel { grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); }
+
+@media (max-width: 900px) {
+  .careers-layout, .contact-layout, .vm-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 760px) {
+  /* header: logo + CTA on top, scrollable menu strip below */
+  header { flex-wrap: wrap; gap: 8px; padding: 10px 4vw; }
+  nav { order: 3; width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  nav::-webkit-scrollbar { display: none; }
+  nav ul { display: flex; gap: 1.3rem; white-space: nowrap; padding-bottom: 2px; }
+  .nav-cta { padding: 7px 12px; font-size: .74rem; }
+
+  section[id], .hero-visual { scroll-margin-top: 110px; }
+  .hero-visual { height: auto; min-height: 560px; max-height: none; }
+  .hero-overlay { padding: 6rem 5vw 2rem; }
+  .hero-actions { gap: .7rem; }
+  .hero-actions a { flex: 1 1 100%; justify-content: center; }
+  .hero-stats { gap: 1.2rem; }
+  .stat b { font-size: 1.35rem; }
+
+  .section-head { margin-bottom: 1.6rem; }
+  section.collection, section.careers, section.vision-mission { padding-bottom: 4rem; }
+  section.hr-services, section.contact { padding-bottom: 4rem; }
+  .vm-card, .job-card, .apply-form { padding: 1.4rem; }
+  .vm-text { font-size: 1.1rem; }
+
+  .job-slots-btn { width: 100%; justify-content: center; }
+  .job-modal { padding: 2vw; }
+  .job-modal-panel { padding: 1rem; max-height: 94vh; max-width: 100% !important; }
+  .job-modal-panel h3 { font-size: 1.15rem; margin-bottom: 1rem; }
+  .job-modal-images img { max-height: 78vh; }
+  .lightbox { padding: 3vh 2vw; }
+  .lightbox-figure { max-width: 96vw; }
+  .job-modal-images { grid-template-columns: 1fr 1fr; gap: .8rem; }
+
+  .form-row input, .form-row select, .form-row textarea { font-size: 16px; } /* stops iOS zoom */
+  .contact-row b { word-break: break-word; }
+  footer { flex-direction: column; text-align: center; padding: 2.4rem 5vw 2rem; }
+  .glow-orb { width: 340px; height: 340px; }
+}
+
+@media (max-width: 380px) {
+  .job-modal-images { grid-template-columns: 1fr; }
+  .card-body, .staff-body { padding: 1.1rem; }
+}

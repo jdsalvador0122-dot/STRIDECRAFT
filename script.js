@@ -154,26 +154,4 @@
     else if (e.key === 'ArrowLeft') stepPair(-1);
     else if (e.key === 'ArrowRight') stepPair(1);
   });
-
-  /* ---------- Founder showcase (footer photo) ---------- */
-  var fModal = document.getElementById('founderModal');
-  var fStage = document.getElementById('founderStage');
-  var fTilt = document.getElementById('founderTilt');
-  function openFounder() { fModal.removeAttribute('hidden'); document.body.style.overflow = 'hidden'; fTilt.style.transform = 'none'; }
-  function closeFounder() { fModal.setAttribute('hidden', ''); document.body.style.overflow = ''; }
-  document.getElementById('founderBtn').addEventListener('click', openFounder);
-  document.getElementById('founderHint').addEventListener('click', openFounder);
-  document.getElementById('founderClose').addEventListener('click', closeFounder);
-  document.getElementById('founderBackdrop').addEventListener('click', closeFounder);
-  document.getElementById('founderCta').addEventListener('click', closeFounder);
-  fStage.addEventListener('pointermove', function (e) {
-    var r = fStage.getBoundingClientRect();
-    var x = (e.clientX - r.left) / r.width - 0.5;
-    var y = (e.clientY - r.top) / r.height - 0.5;
-    fTilt.style.transform = 'rotateY(' + (x * 30) + 'deg) rotateX(' + (-y * 22) + 'deg)';
-  });
-  fStage.addEventListener('pointerleave', function () { fTilt.style.transform = 'rotateX(0deg) rotateY(0deg)'; });
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && !fModal.hasAttribute('hidden')) closeFounder();
-  });
 })();
